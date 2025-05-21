@@ -35,23 +35,22 @@ export default function PhotoPage({ params }: { params: { session_id: string } }
   }
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-6">Photos from Your Session</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {photos.map((url, idx) => (
-          <div key={url} className="border rounded-lg overflow-hidden shadow-lg">
-            <div className="relative h-64 w-full">
-              <Image 
-                src={url} 
-                alt={`Photo ${idx + 1}`} 
-                fill 
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-cover"
-              />
-            </div>
+  <div className="container mx-auto p-4">
+    <h1 className="text-2xl font-bold mb-6">Photos from Your Session</h1>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {photos.map((url, idx) => (
+        <div key={url} className="border rounded-lg overflow-hidden shadow-lg">
+          <div className="relative h-64 w-full">
+            <img
+              src={url}
+              alt={`Photo ${idx + 1}`}
+              className="object-cover w-full h-full"
+              style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+            />
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
-  )
+  </div>
+);
 }
